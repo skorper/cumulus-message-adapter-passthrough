@@ -102,7 +102,7 @@ jobs:
           tag: ${{ env.software_version }}
           message: "Version ${{ env.software_version }}"
       - name: Build Python Lambda Artifact
-          run: sh ./build.sh
+        run: sh ./build.sh
       - name: Prepare Artifacts
         run: |
           artifact_file_name="${{ env.pyproject_name }}-${{ env.software_version }}.zip"
