@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cumulus-message-adapter-passthrough"
-version = "0.1.0"
+version = "1.0.0"
 description = ""
 authors = ["PODAAC IngestAndArchive <podaac@jpl.nasa.gov>"]
 
