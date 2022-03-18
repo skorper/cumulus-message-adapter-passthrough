@@ -74,10 +74,6 @@ jobs:
           echo "venue=ops" >> $GITHUB_ENV
       - name: Install cumulus-passthrough-lambda
         run: poetry install
-      - name: Lint
-        run: |
-          poetry run pylint cumulus-message-adapter-passthrough
-          poetry run flake8 cumulus-message-adapter-passthrough
       - name: Test and coverage
         run: |
           poetry run pytest --junitxml=build/reports/pytest.xml --cov=podaac/ --cov-report=xml:build/reports/coverage.xml -m "not aws and not integration" tests/
