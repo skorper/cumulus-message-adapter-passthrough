@@ -7,7 +7,5 @@ poetry install --no-dev
 cp ./*.py venv/*/lib/*/site-packages/
 cp -R venv/*/lib/*/site-packages/* build
 
-cd build;zip -r ../${service_name}_${code_version}.zip .
-
-
- echo "pyproject_name=$(poetry version | awk '{print $1}')" >> $GITHUB_ENV
+cd build;zip -r ../artifact.zip .
+rm -Rf build
