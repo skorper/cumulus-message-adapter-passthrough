@@ -1,9 +1,13 @@
 #!/bin/sh
-poetry build
-poetry run pip install --upgrade -t package dist/*.whl
-cd package ; zip -r ../artifact.zip . -x '*.pyc'
-cd ..
-#code_version=`python -c 'from cumulus_granule_to_cnm import __version__; print(__version__)'`
+service_name=`poetry version | awk '{print $1}'`
 code_version=`poetry version | awk '{print $2}'`
-cp artifact.zip artifact-$code_version.zip
-echo \*\* artifact-$code_version.zip created \*\*
+pwd;mkdir venv;mkdir -p build/lambda;mkdir -p build/dist
+poetry config virtualenvs.path venv
+poetry install --no-dev
+cp ./*.py venv/*/lib/*/site-packages/
+cp -R venv/*/lib/*/site-packages/* build
+
+cd build;zip -r ../${service_name}_${code_version}.zip .
+
+
+ echo "pyproject_name=$(poetry version | awk '{print $1}')" >> $GITHUB_ENV
