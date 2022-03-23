@@ -1,10 +1,7 @@
 #!/bin/sh
-rm -Rf venv build;mkdir venv;mkdir -p build
-poetry config virtualenvs.path $PWD/venv
-poetry install --no-dev
-cp ./*.py venv/*/lib/*/site-packages/
-ls -la venv/*/lib/*/site-packages/
-cp -Ra venv/*/lib/*/site-packages/* build
+rm -Rf venv build;mkdir venv
 
-cd build;zip -r ../artifact.zip .
-
+poetry export -f requirements.txt --output requirements.txt
+pip3 install -r requirements.txt  --target ./venv
+cp ./*.py ./venv
+cd venv; zip -r ../artifact.zip .
