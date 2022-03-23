@@ -1,6 +1,6 @@
 #!/bin/sh
 rm -Rf venv build;mkdir venv;mkdir -p build
-poetry config virtualenvs.path venv
+poetry config virtualenvs.path $PWD/venv
 poetry install --no-dev
 cp ./*.py venv/*/lib/*/site-packages/
 ls -la venv/*/lib/*/site-packages/
