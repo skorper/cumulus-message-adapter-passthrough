@@ -74,6 +74,18 @@ jobs:
           echo "venue=ops" >> $GITHUB_ENV
       - name: Install cumulus-passthrough-lambda
         run: poetry install
+
+      - name: Run Snyk on Python
+        uses: snyk/actions/python-3.8@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+          args: >
+            -d
+            --org=${{ secrets.SNYK_ORG_ID }}
+            --project-name=${{ github.repository }}
+
       - name: Commit Version Bump
         # If building develop, a release branch, or main then we commit the version bump back to the repo
         if: |
