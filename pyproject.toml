@@ -5,8 +5,8 @@ description = "A simple lambda which pass input through output"
 authors = ["PODAAC IngestAndArchive <podaac@jpl.nasa.gov>"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
-cumulus-process = "0.10.0"
+python = "^3.8"
+cumulus-process = "1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
