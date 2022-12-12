@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **PODAAC-4228**
   - A pasthrough lamba to save cumulus remote message
 ### Changed
+- Upgrade to poetry 1.1.15
 ### Deprecated
 ### Removed
 ### Fixed
